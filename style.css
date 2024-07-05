@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-shadow: 1px 1px #C4417B;
+    font-size: 3.4em;
+}
+
+body {
+    background: #050611;
+    color: #D9DAF3;
+    height: 100vh;
+    font-family: "Poppins";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.form-body,.form-output-body {
+    background: #8E8EDC;
+    max-width: 500px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    border: 5px solid;
+    box-shadow: 5px 5px 15px hsla(0, 1%, 42%, 0.3);
+    text-align: center;
+}
+
+.guide {
+    font-size: 1rem;
+}
+
+#inputtxtbox {
+    height: 50%;
+    text-align: center;
+    font-size: 2.1em;
+    border: 2px solid;
+    margin: 15px;
+}
+
+label {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px #C4417B;
+}
+
+button {
+    margin-top: 15px;
+    background: #82286b;
+    border: 1px solid #82286b;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+
+}
+
+button:hover,
+button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #c4417b;
+}
+
+button:active {
+  opacity: .5;
+}
+
+#output {
+    font-size: 2.3em;
+    font-weight: bold;
+    text-shadow: 1px 1px #C4417B;
+}
+
+/* Makes the website responsive. */
+@media (max-width: 768px) {
+
+    .form-body,.form-output-body {
+        max-width: 400px;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    #inputtxtbox {
+        font-size: 1.8rem;
+    }
+
+    label {
+        font-size: 1.5rem;
+    }
+
+    .guide {
+        font-size: 1rem;
+    }
+
+    #output {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .form-body,.form-output-body {
+        max-width: 300px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #inputtxtbox {
+        font-size: 1.5rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    .guide {
+        font-size: 0.7rem;
+    }
+
+    #output {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .form-body,.form-output-body {
+        max-width: 300px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #inputtxtbox {
+        font-size: 1.5rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    .guide {
+        font-size: 0.8rem;
+    }
+
+    #output {
+        font-size: 1.2rem;
+    }
+}
