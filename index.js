@@ -1,55 +1,32 @@
-// Morse code mapping
-const morseCodeMap = {
-    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
-    'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
-    'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
-    'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
-    'Y': '-.--', 'Z': '--..', '1': '.----', '2': '..---', '3': '...--',
-    '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..',
-    '9': '----.', '0': '-----', ' ': '/', // Space between words
-    '.': '.-.-.-', ',': '--..--', '?': '..--..', "'": '.----.',
-    '!': '-.-.--', '/': '-..-.', '(': '-.--.', ')': '-.--.-',
-    '&': '.-...', ':': '---...', ';': '-.-.-.', '=': '-...-',
-    '+': '.-.-.', '-': '-....-', '_': '..--.-', '"': '.-..-.',
-    '$': '...-..-', '@': '.--.-.'
-};
+const temperature = document.getElementById("numbertxtbox");
+const toFahrenheit = document.getElementById("toFahrenheit");
+const toCelsius = document.getElementById("toCelsius");
+const result = document.getElementById("result");
 
-// Inverted Morse code map for decoding
-const inverseMorseCodeMap = {};
-for (const key in morseCodeMap) {
-    inverseMorseCodeMap[morseCodeMap[key]] = key;
-}
+function Convert() {
+    let temp = Number(temperature.value);
 
-// Function to encode text into Morse Code.
-function encodeToMorse(text) {
-    return text.toUpperCase().split('').map(char => morseCodeMap[char] || '').join(' ');
-}
-
-// Function to decode Morse code into text.
-function decodeFromMorse(morse) {
-    morse = morse.replace(/_/g, '-').replace(/\/+/g, ' / '); 
-    const words = morse.split(' / '); 
-    return words.map(word => word.split(' ').map(code => inverseMorseCodeMap[code] || '').join('')).join(' ');
-}
-
-// Function for encoding & decoding.
-function Process() {
-    const inputTextBox = document.getElementById('inputtxtbox');
-    const outputElement = document.getElementById('output');
-    const inputText = inputTextBox.value.trim();
-
-    const isEncode = document.getElementById('toEncoder').checked;
-    const isDecode = document.getElementById('toDecoder').checked;
-
-    if (isEncode) {
-        outputElement.textContent = encodeToMorse(inputText);
-    } else if (isDecode) {
-        outputElement.textContent = decodeFromMorse(inputText);
-    } else {
-        outputElement.textContent = "Please select an option to encode or decode.";
+    if(temp == "") {
+        result.textContent = "Please enter a temperature"
+    }else {
+        if(toFahrenheit.checked) {
+            CelciustoFarenheit(temp);
+        }else if(toCelsius.checked) {
+            FahrenheitCelcius(temp);
+        }else{
+            result.textContent = "Select a Unit";
+        }
     }
 
 }
 
-// Event listener for the button.
-document.getElementById('clickbtn').addEventListener('click', Process);
+function CelciustoFarenheit(tempCelsius) {
+    let tempFahrenheit = tempCelsius * 9 / 5 + 32;
+    result.textContent = tempFahrenheit.toFixed(1) + "°F";
+}
+
+function FahrenheitCelcius(tempFahrenheit) {
+    let tempCelsius = (tempFahrenheit - 32) * 5 / 9;
+    result.textContent = tempCelsius.toFixed(1) + "°C";
+
+}
